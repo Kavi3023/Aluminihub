@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, 'alumni.db')
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'change_this_to_a_random_secret_in_production'
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", "dev-secret")
 app.config['DATABASE'] = DB_PATH
 
 def get_db():
